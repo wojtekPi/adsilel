@@ -1,0 +1,19 @@
+@startuml
+participant User
+
+User -> AdsService : refreshAds()
+activate AdsService
+
+AdsService -> ExternalAdsSource: << getAdds(Date from, Date to) >>
+activate ExternalAdsSource
+
+ExternalAdsSource -> AdsService: << return ads >>
+deactivate ExternalAdsSource
+
+AdsService -> AdsStorage: << save >>
+activate AdsStorage
+
+deactivate AdsStorage
+
+deactivate AdsService
+@endum
