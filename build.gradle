@@ -1,7 +1,7 @@
-
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
+    apply plugin: 'jacoco'
 
     group = 'com.wojtek.pi'
     version = '0.0.1-SNAPSHOT'
@@ -11,15 +11,25 @@ subprojects {
         mavenCentral()
     }
 
-
 }
+
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'jacoco'
 
 project(':main') {
     dependencies {
         compile project(':core')
     }
+}
+
+repositories {
+    mavenCentral()
+}
+
+jacoco {
+    toolVersion = "0.7.9"
+    reportsDir = file("${buildDir}/reports/jacoco/")
 }
 
 task codeCoverageReport(type: JacocoReport) {
