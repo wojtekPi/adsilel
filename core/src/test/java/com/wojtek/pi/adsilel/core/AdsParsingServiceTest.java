@@ -1,7 +1,7 @@
 package com.wojtek.pi.adsilel.core;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -13,7 +13,7 @@ import static java.time.LocalDateTime.parse;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-class AdsParsingServiceTest {
+public class AdsParsingServiceTest {
 
     private static final LocalDateTime DATE_TO = parse("2007-12-03T10:16:30");
     private static final LocalDateTime DATE_FROM = parse("2007-12-03T10:15:30");
@@ -36,8 +36,8 @@ class AdsParsingServiceTest {
     private ArrayList<RawAd> listOfRawAds;
     private ArrayList<ParsedAd> listOfParsedAds;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
         listOfRawAds = newArrayList(rawAd1, rawAd2);
         listOfParsedAds = newArrayList(parsedAd1, parsedAd2);
@@ -45,7 +45,7 @@ class AdsParsingServiceTest {
     }
 
     @Test
-    void shouldParseAllAdsInRange() {
+    public void shouldParseAllAdsInRange() {
         when(rawAdsDao.getAdsBetween(DATE_FROM, DATE_TO)).thenReturn(listOfRawAds);
 
         testedObject.parseAdsInRange(DATE_FROM, DATE_TO);
@@ -55,7 +55,7 @@ class AdsParsingServiceTest {
     }
 
     @Test
-    void shouldSaveParsedAdsToDao() {
+    public void shouldSaveParsedAdsToDao() {
         when(rawAdsDao.getAdsBetween(DATE_FROM, DATE_TO)).thenReturn(listOfRawAds);
         when(rawAdParser.parse(rawAd1)).thenReturn(parsedAd1);
         when(rawAdParser.parse(rawAd2)).thenReturn(parsedAd2);
