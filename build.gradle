@@ -20,6 +20,13 @@ apply plugin: 'jacoco'
 project(':main') {
     dependencies {
         compile project(':core')
+        compile project(':plugins')
+    }
+}
+
+project(':plugins') {
+    dependencies {
+        compile project(':core')
     }
 }
 
