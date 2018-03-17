@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static java.time.LocalDateTime.parse;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

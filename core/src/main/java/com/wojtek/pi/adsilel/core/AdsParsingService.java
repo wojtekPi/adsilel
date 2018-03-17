@@ -10,7 +10,7 @@ class AdsParsingService {
     private final RawAdParser rawAdParser;
     private final ParsedAdsDao parsedAdsDao;
 
-    public AdsParsingService(RawAdsDao rawAdsDao, RawAdParser rawAdParser, ParsedAdsDao parsedAdsDao) {
+    AdsParsingService(RawAdsDao rawAdsDao, RawAdParser rawAdParser, ParsedAdsDao parsedAdsDao) {
         this.rawAdsDao = rawAdsDao;
         this.rawAdParser = rawAdParser;
         this.parsedAdsDao = parsedAdsDao;
